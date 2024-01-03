@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoUsers from './TodoUsers';
 import { Button, Input } from '../Component';
 import { useDispatch } from 'react-redux';
@@ -65,7 +65,6 @@ const TodoList = ({
       ) : (
         <div>{todoData.title}</div>
       )}
-      <TodoUsers userId={todoData.userId} />
       {seletedId === todoData.id && editEnabled ? (
         <>
           <Button

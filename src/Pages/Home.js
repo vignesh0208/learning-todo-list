@@ -8,6 +8,7 @@ import {
   patchTodoData,
   updatePatchData,
 } from '../Slice/fetchPostsSlice';
+import { searchTerm } from '../Slice/searchSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import TodoList from './TodoList';
 
@@ -20,6 +21,7 @@ const Home = () => {
   const postDataArray = useSelector(postData);
   const state = useSelector(postState);
   const errMessage = useSelector(postError);
+  const searchValue = useSelector(searchTerm);
 
   useEffect(() => {
     if (state === 'idle') {
@@ -66,21 +68,22 @@ const Home = () => {
   } else if (state === 'error') {
     HomeContainer = <p>{errMessage}</p>;
   } else if (state === 'fulfilled') {
-    HomeContainer = postDataArray.map((data) => {
-      return (
-        <TodoList
-          key={data.id}
-          todoData={data}
-          handleEditPost={handleEditPost}
-          seletedId={seletedId}
-          editEnabled={editEnabled}
-          handleEditTitle={handleEditTitle}
-          editText={editText}
-          handleCloseEdit={handleCloseEdit}
-          handleUpdateTodo={handleUpdateTodo}
-        />
-      );
+    const filteredData = postDataArray.filter((val) => {
+      return val.title.toLowerCase().includes(searchValue.toLowerCase());
     });
+    HomeContainer = [...filteredData].reverse().map((data) => (
+      <TodoList
+        key={data.id}
+        todoData={data}
+        handleEditPost={handleEditPost}
+        seletedId={seletedId}
+        editEnabled={editEnabled}
+        handleEditTitle={handleEditTitle}
+        editText={editText}
+        handleCloseEdit={handleCloseEdit}
+        handleUpdateTodo={handleUpdateTodo}
+      />
+    ));
   }
 
   return <>{HomeContainer}</>;

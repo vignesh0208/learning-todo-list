@@ -1,15 +1,14 @@
 import './App.css';
 import AddTodo from './Pages/AddTodo';
 import Home from './Pages/Home';
+import Search from './Pages/Search';
 
 function App() {
   return (
     <>
       <AddTodo />
+      <Search />
       <Home />
-      <header></header>
-      <section></section>
-      <footer></footer>
     </>
   );
 }

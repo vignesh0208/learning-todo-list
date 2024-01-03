@@ -66,7 +66,7 @@ const fetchPosts = createSlice({
       })
       .addCase(fetchDataPosts.rejected, (status, action) => {
         status.state = 'error';
-        status.posts = action.error.message;
+        status.error = action.error.message;
       })
       .addCase(postTodoData.fulfilled, (status, action) => {
         status.state = 'fulfilled';
