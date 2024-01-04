@@ -6,26 +6,6 @@ export const fetchDataPosts = createAsyncThunk('fetch/todos', async () => {
   return responce.data;
 });
 
-export const postTodoData = createAsyncThunk('post/todo', async (data) => {
-  const responce = await api.post('/todos', data);
-  return responce.data;
-});
-
-export const deleteTodoData = createAsyncThunk(
-  'delete/todo',
-  async (deleteId) => {
-    if (!deleteId) return;
-    const responce = await api.delete(`/todos/${deleteId}`);
-    return responce.data;
-  },
-);
-
-export const patchTodoData = createAsyncThunk('update/todo', async (data) => {
-  if (!data.seletedId) return;
-  const responce = await api.put(`/todos/${data.seletedId}`, data.patchData);
-  return responce.data;
-});
-
 const initialState = {
   posts: [],
   state: 'idle',
@@ -67,15 +47,6 @@ const fetchPosts = createSlice({
       .addCase(fetchDataPosts.rejected, (status, action) => {
         status.state = 'error';
         status.error = action.error.message;
-      })
-      .addCase(postTodoData.fulfilled, (status, action) => {
-        status.state = 'fulfilled';
-      })
-      .addCase(deleteTodoData.fulfilled, (status, action) => {
-        status.state = 'fulfilled';
-      })
-      .addCase(patchTodoData.fulfilled, (status, action) => {
-        status.state = 'fulfilled';
       });
   },
 });

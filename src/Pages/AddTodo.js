@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { postData, postTodoData, setPostData } from '../Slice/fetchPostsSlice';
+import { postData, setPostData } from '../Slice/fetchPostsSlice';
+import { postTodoData } from '../Slice/postDataSlice';
 import { Input, Button } from '../Component';
 import { unwrapResult } from '@reduxjs/toolkit';
 

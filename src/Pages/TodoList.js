@@ -1,13 +1,9 @@
 import React from 'react';
-import TodoUsers from './TodoUsers';
 import { Button, Input } from '../Component';
 import { useDispatch } from 'react-redux';
-import {
-  deleteTodoData,
-  handleDelete,
-  patchTodoData,
-  updatePatchData,
-} from '../Slice/fetchPostsSlice';
+import { handleDelete, updatePatchData } from '../Slice/fetchPostsSlice';
+import { putTodoData } from '../Slice/putDataSlice';
+import { deleteTodoData } from '../Slice/deleteDataSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 
 const TodoList = ({
@@ -29,7 +25,7 @@ const TodoList = ({
         seletedId: seleted_id,
         patchData: { ...todoData, completed: e.target.checked },
       };
-      const responce = await dispatch(patchTodoData(patchData));
+      const responce = await dispatch(putTodoData(patchData));
       const data = unwrapResult(responce);
       dispatch(updatePatchData(data));
     } catch (err) {

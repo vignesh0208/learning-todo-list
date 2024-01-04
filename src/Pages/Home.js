@@ -5,9 +5,9 @@ import {
   postState,
   postError,
   fetchDataPosts,
-  patchTodoData,
   updatePatchData,
 } from '../Slice/fetchPostsSlice';
+import { putTodoData } from '../Slice/putDataSlice';
 import { searchTerm } from '../Slice/searchSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import TodoList from './TodoList';
@@ -51,7 +51,7 @@ const Home = () => {
         seletedId: seletedId,
         patchData: { ...todoData, title: editText },
       };
-      const responce = await dispatch(patchTodoData(patchData));
+      const responce = await dispatch(putTodoData(patchData));
       const data = unwrapResult(responce);
       dispatch(updatePatchData(data));
       setSeletedId(null);
