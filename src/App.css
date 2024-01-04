@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+/* Common class Start */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #262626;
+  border: 1px solid #c5c9cd;
+  background-color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type='text'] {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #262626;
+  border: 1px solid #c5c9cd;
+  background-color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type='checkbox'] {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #262626;
+  border: 1px solid #c5c9cd;
+  background-color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #262626;
+  border: 1px solid #c5c9cd;
+  margin-bottom: 8px;
+}
+.card:last-child {
+  margin-bottom: 0px;
+}
+.mr-16 {
+  margin-right: 16px;
+}
+
+/* Common class End */
+
+header {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+header .d-flex {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #fff;
 }

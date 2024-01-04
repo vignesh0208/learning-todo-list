@@ -44,7 +44,7 @@ const TodoList = ({
   };
 
   return (
-    <section style={{ border: '1px solid #000', marginBottom: '4px' }}>
+    <section className='card'>
       <Input
         inputType='checkbox'
         inputName='completed'

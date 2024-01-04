@@ -44,6 +44,7 @@ const AddTodo = () => {
           inputRef={currentRef}
         />
         <Button
+          extraClassName='mr-16'
           ButtonType='submit'
           children='Add Todo'
         />

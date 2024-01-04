@@ -1,4 +1,4 @@
-import './App.css';
+import 'tailwindcss/tailwind.css';
 import AddTodo from './Pages/AddTodo';
 import Home from './Pages/Home';
 import Search from './Pages/Search';
@@ -6,8 +6,12 @@ import Search from './Pages/Search';
 function App() {
   return (
     <>
-      <AddTodo />
-      <Search />
+      <header>
+        <div className='d-flex'>
+          <AddTodo />
+          <Search />
+        </div>
+      </header>
       <Home />
     </>
   );
