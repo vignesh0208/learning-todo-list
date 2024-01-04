@@ -63,7 +63,7 @@ const Home = () => {
   };
 
   let HomeContainer;
-  if (state === 'loading') {
+  if (state === 'pending') {
     HomeContainer = <p>Loading...</p>;
   } else if (state === 'error') {
     HomeContainer = <p>{errMessage}</p>;

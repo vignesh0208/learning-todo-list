@@ -42,6 +42,7 @@ const AddTodo = () => {
           inputValue={todo}
           handleChange={(e) => setTodo(e.target.value)}
           inputRef={currentRef}
+          extraClassName='mr-2'
         />
         <Button
           extraClassName='mr-16'

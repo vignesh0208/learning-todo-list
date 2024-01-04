@@ -18,7 +18,7 @@ const Input = ({
       type={inputType}
       id={inputId}
       name={inputName}
-      className={extraClassName}
+      className={`p-2 rounded text-sm text-[#262626] border-[1px] border-[#c5c9cd] bg-white focus-visible:outline-none ${extraClassName}`}
       placeholder={inputPlaceholder}
       value={inputType !== 'checkbox' ? inputValue : undefined}
       checked={inputType === 'checkbox' ? inputChecked : undefined}

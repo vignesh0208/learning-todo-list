@@ -44,50 +44,58 @@ const TodoList = ({
   };
 
   return (
-    <section className='card'>
-      <Input
-        inputType='checkbox'
-        inputName='completed'
-        inputChecked={todoData.completed}
-        handleChange={(e) => handleCompleted(e, todoData.id)}
-      />
-      {seletedId === todoData.id && editEnabled ? (
+    <section className='border-[1px] border-[#c5c9cd] p-4 text-[#262626] text-sm rounded mb-2 last:mb-0 flex items-center justify-between'>
+      <div className='flex items-center'>
         <Input
-          inputType='text'
-          inputName='title'
-          inputValue={editText}
-          handleChange={(e) => handleEditTitle(e)}
+          inputType='checkbox'
+          inputName='completed'
+          inputChecked={todoData.completed}
+          handleChange={(e) => handleCompleted(e, todoData.id)}
+          extraClassName='mr-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus-visible:outline-none'
         />
-      ) : (
-        <div>{todoData.title}</div>
-      )}
-      {seletedId === todoData.id && editEnabled ? (
-        <>
-          <Button
-            type='button'
-            children='Update'
-            handleClick={() => handleUpdateTodo(todoData)}
+        {seletedId === todoData.id && editEnabled ? (
+          <Input
+            inputType='text'
+            inputName='title'
+            inputValue={editText}
+            handleChange={(e) => handleEditTitle(e)}
+            extraClassName='w-[300px]'
           />
-          <Button
-            type='button'
-            children='Cancel'
-            handleClick={() => handleCloseEdit(todoData.id)}
-          />
-        </>
-      ) : (
-        <>
-          <Button
-            type='button'
-            children='Edit'
-            handleClick={() => handleEditPost(todoData)}
-          />
-          <Button
-            type='button'
-            children='Delete'
-            handleClick={() => handleDeletePost(todoData.id)}
-          />
-        </>
-      )}
+        ) : (
+          <div>{todoData.title}</div>
+        )}
+      </div>
+      <div>
+        {seletedId === todoData.id && editEnabled ? (
+          <>
+            <Button
+              type='button'
+              children='Update'
+              handleClick={() => handleUpdateTodo(todoData)}
+              extraClassName='mr-2'
+            />
+            <Button
+              type='button'
+              children='Cancel'
+              handleClick={() => handleCloseEdit(todoData.id)}
+            />
+          </>
+        ) : (
+          <>
+            <Button
+              type='button'
+              children='Edit'
+              handleClick={() => handleEditPost(todoData)}
+              extraClassName='mr-2'
+            />
+            <Button
+              type='button'
+              children='Delete'
+              handleClick={() => handleDeletePost(todoData.id)}
+            />
+          </>
+        )}
+      </div>
     </section>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'tailwindcss/tailwind.css';
 
 const Button = ({
   ButtonType,
@@ -13,7 +12,7 @@ const Button = ({
     <button
       type={ButtonType}
       onClick={handleClick}
-      className={`text-[#262626] rounded ${extraClassName}`}
+      className={`text-[#262626] text-sm rounded py-2 px-6 cursor-pointer border-[1px] border-[#c5c9cd] bg-white  ${extraClassName}`}
       disabled={isDisabled}>
       {children}
     </button>
