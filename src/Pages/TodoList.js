@@ -62,7 +62,9 @@ const TodoList = ({
             extraClassName='w-[300px]'
           />
         ) : (
-          <div>{todoData.title}</div>
+          <div className={todoData.completed && 'line-through'}>
+            {todoData.title}
+          </div>
         )}
       </div>
       <div>
